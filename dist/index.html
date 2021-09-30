@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Auth0 Hosted Login</title>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+  background: #F3F4F7;
+  font-size: 14px;
+  line-height: 1.5; }
+
+.alignC {
+  text-align: center; }
+
+  .form-input-password {
+      position: relative;
+  }
+.toggle-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 5px;
+  top: 10px;
+  cursor: pointer; }
+  .toggle-btn .icon-show {
+    display: none; }
+  .toggle-btn.show .icon-show {
+    display: block; }
+  .toggle-btn.show .icon-hide {
+    display: none; }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  padding: 72px 40px; }
+  .container .logo {
+    margin-bottom: 72px; }
+  .container .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    width: 100%;
+    border: none;
+    max-width: 424px; }
+    .container .card .title {
+      font-size: 20px;
+      line-height: 1.4;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 32px; }
+    .container .card form {
+      width: 100%; }
+      .container .card form label {
+        display: block;
+        font-size: 14px;
+        line-height: 1.2;
+        margin-bottom: 20px; }
+        .container .card form label .label {
+          margin-bottom: 8px; }
+        .container .card form label .form-input {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          background: #F3F4F7;
+          border-radius: 8px;
+          padding: 11px 8px;
+          line-height: 1.5; }
+          .container .card form label .form-input input {
+            flex: 1;
+            outline: none;
+            border: none;
+            background: none; 
+            }
+
+      .container .card form button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        color: white;
+        font-weight: 700;
+        background: #00BFFF;
+        border-radius: 50px;
+        width: 100%;
+        max-width: 200px;
+        height: 48px;
+        margin-left: auto;
+        margin-right: auto;
+        cursor: pointer; }
+        .container .card form button:hover {
+          opacity: .8; }
+      .container .card form a {
+        display: inline-block;
+        color: #00BFFF;
+        font-size: 12px;
+        line-height: 1.5;
+        margin-top: 12px;
+        text-decoration: none; }
+        .container .card form a:hover {
+          text-decoration: underline; }
+        
+    </style>
+</head>
+<body>
+    
+    <div id="app"></div>
+    <script>
+        try {
+            window.auth0Config  = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
+        } catch (e) {
+            window.auth0Config = {
+                    auth0Domain: 'shin-caritore-dev.jp.auth0.com',
+                    clientID: 'u75CRQBAQ6Mz6w5Hcnswwb0ABJ0D9GfT',
+                    connection: 'org-db-ecfd5bd2784b40918f9f8e2111d1061d',
+                    callbackURL: location.href,
+                    audience: 'https://vjayaram-playground.au.auth0.com/userinfo',
+                    scope: 'openid',
+                    authorizationServer: {
+                        url: '',
+                        issuer: '',
+                    },
+                    extraParams: {
+                        response_type: 'code'
+                    },
+                };            
+        }
+    </script>
+<script type="text/javascript" src="main.js"></script></body>
+</html>
