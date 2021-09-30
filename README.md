@@ -1,12 +1,6 @@
 # Auth0 Vuejs
 
-[Auth0](https://auth0.com) is an authentication broker that supports social identity providers as well as enterprise identity providers such as Active Directory, LDAP, Google Apps, Salesforce and databases.
-
-Sample project to demostrate [auth0.js](https://github.com/auth0/auth0.js) 
-
-* Login with database connection
-* Reset Password
-* Signup with first name, last name, email, password
+[Auth0](https://auth0.com) custom login page using vue
 
 ## Running locally
 
@@ -37,8 +31,7 @@ $ npm start
 
 ## Deploy to Auth0 Universal Login Pages
 
-1. Run `npm run build` , a dist folder will be created with `index.html, main.js` files
-2. Upload the `main.js` file to a CDN, example AWS S3 Bucket
-3. Add the script tag to import the `main.js` file in the `index.html`
-4. Copy the contents of `index.html` into Auth0 Universal Login, Login section.
+1. Run `yarn build` , a dist folder will be created with `index.html, main.js` files
+2. create a new release on github repository
+3. change the version here js file version here https://manage.auth0.com/dashboard/jp/shin-caritore-dev/login_page
 
