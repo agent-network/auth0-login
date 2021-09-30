@@ -27,6 +27,7 @@ function login (username, password) {
     return new Promise((resolve, reject) => {
         try {
             initWebAuth().login({
+                realm: window['auth0Config'].connection,
                 username: username,
                 password: password
             }, err => {
