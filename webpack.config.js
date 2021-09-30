@@ -1,8 +1,12 @@
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
 
 module.exports = {
     mode: 'development',
+    optimization: {
+        splitChunks: false,
+    },
     resolve: {
         extensions: ['.js', '.vue']
     },
@@ -21,7 +25,7 @@ module.exports = {
         ]
     },
     plugins: [new HtmlWebpackPlugin({
-        template: './src/index.html'
+        template: './src/index.html',
     })],
     devServer: {
         historyApiFallback: true

@@ -47,7 +47,7 @@ const actions = {
                     router.push('/login');
                     setTimeout(() => {
                         // display success message after route change completes
-                        dispatch('alert/success', resp, { root: true });
+                        dispatch('alert/success', 'パスワードを再設定するためにメールを送りました。', { root: true });
                     })
                 }))
             .catch(

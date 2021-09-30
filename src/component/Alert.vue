@@ -1,11 +1,9 @@
 <template>
     <div class="">
-        <div class="container">
-            <div class="row">
-                <div class="center">
-                    <div v-if="alert.message" :class="`alert ${alert.type}`">{{alert.message}}</div>
-                    <router-view></router-view>
-                </div>
+        <div class="row">
+            <div class="center">
+                <div v-if="alert.message" :class="`alert ${alert.type}`">{{alert.message}}</div>
+                <router-view></router-view>
             </div>
         </div>
     </div>
