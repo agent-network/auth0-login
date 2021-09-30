@@ -33,7 +33,7 @@
             </form>
         </div>
         <div class="white-text-center d-flex justify-content-center">
-            <router-link to="/login/resetpassword" class="white-text-center btn btn-link">パスワードを忘れた場合はこちら</router-link>
+            <router-link to="/login/resetpassword" class="white-text-center btn-link">パスワードを忘れた場合はこちら</router-link>
         </div>
     </div>
 </template>

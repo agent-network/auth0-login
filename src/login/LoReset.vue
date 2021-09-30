@@ -1,5 +1,6 @@
 <template>
     <div class="w-100">
+      <div  v-if="!submitted " class="w-100">
         <h2 class="title">パスワードを設定してください</h2>
         <div class="auth0-form">
             <alert-box></alert-box>
@@ -41,10 +42,18 @@
                     </button>
                 </div>
             </form>
+
         </div>
-        <div class="white-text-center d-flex justify-content-center">
-            <router-link to="/login" class="white-text-center btn btn-link">ログインに戻る</router-link>
+      </div>
+      <div v-else>
+        <h2 class="title">パスワード再設定完了</h2>
+        <div class="description">パスワードの再設定が完了しました。</div>
+        <div class="form-group d-flex justify-content-center">
+            <a ref="loginButton" class="btn btn-primary btn-block" href="#">
+                ログイン
+            </a>
         </div>
+      </div>
     </div>
 </template>
 
@@ -76,6 +85,7 @@ export default {
     methods: {
         ...mapActions('account', ['reset']),
         handleSubmit (e) {
+          console.log('submit')
             this.submitted = true;
             const { newPassword, confirmNewPassword } = this;
             this.confirmNewPasswordError = '';
@@ -97,19 +107,22 @@ export default {
                 newPassword,
                 confirmNewPassword,
               })
-            }).then(res => {
+            }).then(resp => resp.json()).then(res => {
               if (res.status >= 200 && res.status < 300) {
-                console.log(res)
                 if (res.body && typeof res.body.request_url === 'string') {
                   return window.location.replace(res.body.request_url)
                 } else {
                   // TODO
                 }
+              } else {
+                let getErrorFunc = !!res ? this.getResponseError : this.getNetworkError
+                let error = getErrorFunc(res)
+
+                this.globalError = error
               }
 
             })
             .catch(res => {
-              console.log
               let getErrorFunc = !!res ? this.getResponseError : this.getNetworkError
               let error = getErrorFunc(res)
 
@@ -124,7 +137,7 @@ export default {
             body = {};
           }
 
-          passwordErrors = {
+          let passwordErrors = {
             PasswordStrengthError: "weakPasswordError",
             PasswordHistoryError: "passwordHistoryError",
             PasswordDictionaryError: "passwordDictError",
@@ -142,6 +155,7 @@ export default {
 
           return error;
         },
+
     },
     components: {'alert-box': alertBox}
 };

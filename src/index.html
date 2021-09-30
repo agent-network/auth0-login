@@ -86,7 +86,8 @@
             background: none; 
             }
 
-      .container .card form button {
+      .container .card button, .container .card .btn {
+          text-decoration: none;
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -100,17 +101,21 @@
         height: 48px;
         margin-left: auto;
         margin-right: auto;
-        cursor: pointer; }
-        .container .card form button:hover {
+        cursor: pointer; 
+        font-size: 16px;
+        }
+        .container .card button:hover, .container .card .btn:hover {
+            text-decoration: none;
+            color: white;
           opacity: .8; }
-      .container .card form a {
+      .container .card a {
         display: inline-block;
         color: #00BFFF;
         font-size: 12px;
         line-height: 1.5;
         margin-top: 12px;
         text-decoration: none; }
-        .container .card form a:hover {
+        .container .card a:hover {
           text-decoration: underline; }
      .invalid-feedback {
          display: block;
