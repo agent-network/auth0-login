@@ -1,6 +1,6 @@
 <template>
     <div class="w-100">
-      <div  v-if="!submitted " class="w-100">
+      <div  v-if="!submitted" class="w-100">
         <h2 class="title">パスワードを設定してください</h2>
         <div class="auth0-form">
             <alert-box></alert-box>
@@ -112,7 +112,7 @@ export default {
                 if (res.body && typeof res.body.request_url === 'string') {
                   return window.location.replace(res.body.request_url)
                 } else {
-                  // TODO
+                  this.$refs.loginButton.setAttribute('href', localStorage.getItem('callbackURL'))
                 }
               } else {
                 let getErrorFunc = !!res ? this.getResponseError : this.getNetworkError
@@ -125,7 +125,7 @@ export default {
             .catch(res => {
               let getErrorFunc = !!res ? this.getResponseError : this.getNetworkError
               let error = getErrorFunc(res)
-
+              this.$refs.loginButton.setAttribute('href', localStorage.getItem('callbackURL'))
               this.globalError = error
             })
         },

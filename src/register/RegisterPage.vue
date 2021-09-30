@@ -31,7 +31,7 @@
             </form>
         </div>
         <div class="white-text-center">
-            <router-link to="/login" class="white-text-center btn btn-link">Already have an account? Log in</router-link>
+            <router-link to="/login" class="white-text-center btn-link">Already have an account? Log in</router-link>
         </div>
     </div>
 </template>
