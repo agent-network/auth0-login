@@ -1,6 +1,7 @@
 <template>
     <div class="w-100">
-        <h2 class="title">メールアドレスを入力してください</h2>
+        <h2 class="title">パスワードをリセット</h2>
+        <div class="description">登録したメールアドレスを入力してください。入力したメールアドレスへご連絡いたします。</div>
         <div class="auth0-form">
             <form @submit.prevent="handleSubmit">
                 <div class="form-group">
@@ -9,7 +10,7 @@
                     <div v-show="submitted && !email" class="invalid-feedback">Email is required</div>
                 </div>
                 <div class="form-group d-flex justify-content-center">
-                    <button class="btn btn-primary btn-block">パスワードをリセット</button>
+                    <button class="btn btn-primary btn-block">送信</button>
                 </div>
             </form>
         </div>

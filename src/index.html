@@ -55,6 +55,13 @@
       font-weight: 600;
       text-align: center;
       margin-bottom: 32px; }
+    .container .card .description {
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 140%;
+        text-align: center;
+        margin-bottom: 32px;
+    }
     .container .card form {
       width: 100%; }
       .container .card form label {
@@ -105,6 +112,9 @@
         text-decoration: none; }
         .container .card form a:hover {
           text-decoration: underline; }
+     .invalid-feedback {
+         display: block;
+     }
         
     </style>
 </head>
@@ -116,21 +126,28 @@
             window.auth0Config  = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
         } catch (e) {
             window.auth0Config = {
-                    auth0Domain: 'shin-caritore-dev.jp.auth0.com',
-                    clientID: 'u75CRQBAQ6Mz6w5Hcnswwb0ABJ0D9GfT',
-                    connection: 'org-db-ecfd5bd2784b40918f9f8e2111d1061d',
-                    callbackURL: location.href,
-                    audience: 'https://vjayaram-playground.au.auth0.com/userinfo',
-                    scope: 'openid',
-                    authorizationServer: {
-                        url: '',
-                        issuer: '',
-                    },
-                    extraParams: {
-                        response_type: 'code'
-                    },
-                };            
+                auth0Domain: 'shin-caritore-dev.jp.auth0.com',
+                clientID: 'u75CRQBAQ6Mz6w5Hcnswwb0ABJ0D9GfT',
+                connection: 'org-db-ecfd5bd2784b40918f9f8e2111d1061d',
+                callbackURL: location.href,
+                audience: 'https://vjayaram-playground.au.auth0.com/userinfo',
+                scope: 'openid',
+                authorizationServer: {
+                    url: '',
+                    issuer: '',
+                },
+                extraParams: {
+                    response_type: 'code'
+                },
+            };            
         }
+        window.LoResetConfig = {
+            container:         "change-password-widget-container",                // required
+            email:             "{{email | escape}}",                              // DO NOT CHANGE THIS
+            csrf_token:        "{{csrf_token}}",                                  // DO NOT CHANGE THIS
+            ticket:            "{{ticket}}",                                      // DO NOT CHANGE THIS
+            password_policy:   "{{password_policy}}",                             // DO NOT CHANGE THIS
+        };
     </script>
 </body>
 </html>

@@ -44,10 +44,10 @@ const actions = {
             .then(
                 (resp => {
                     commit('changePasswordSuccess', user);
-                    router.push('/login');
+                    router.push('/email-sent');
                     setTimeout(() => {
                         // display success message after route change completes
-                        dispatch('alert/success', 'パスワードを再設定するためにメールを送りました。', { root: true });
+                        dispatch('alert/success', '登録したメールアドレスに、メールを送信しました。', { root: true });
                     })
                 }))
             .catch(
