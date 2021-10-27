@@ -5,7 +5,7 @@
         <div class="auth0-form">
             <alert-box></alert-box>
             <form @submit.prevent="handleSubmit" >
-                <div class="form-group">
+                <div class="form-group mb-4">
                     <label htmlFor="newPassword">新しいパスワード</label>
                     <div class="form-input-password">
                         <input :type="showNewPassword ? 'text' : 'password'" v-model="newPassword" name="newPassword" class="form-control" :class="{ 'is-invalid': submitted && newPasswordError }" placeholder="半角英数で入力" />
@@ -20,7 +20,7 @@
                     </div>
                     <div v-show="submitted && newPasswordError" class="invalid-feedback">{{ newPasswordError }}</div>
                 </div>
-                <div class="form-group">
+                <div class="form-group mb-4">
                     <label htmlFor="password-confirm">パスワードを再入力</label>
                     <div class="form-input-password">
                         <input :type="showConfirmNewPassword ? 'text' : 'password'" v-model="confirmNewPassword" name="confirmNewPassword" class="form-control" :class="{ 'is-invalid': submitted && confirmNewPasswordError }" placeholder="半角英数で入力" />
@@ -47,8 +47,8 @@
       </div>
       <div v-else>
         <h2 class="title">パスワード再設定完了</h2>
-        <div class="description">パスワードの再設定が完了しました。</div>
-        <div class="form-group d-flex justify-content-center">
+        <div class="description alignC mb-4">パスワードの再設定が完了しました。</div>
+        <div class="form-group d-flex justify-content-center pt-2">
             <a ref="loginButton" class="btn btn-primary btn-block" href="#">
                 ログイン
             </a>
