@@ -4,7 +4,7 @@
         <div class="description">登録したメールアドレスを入力してください。入力したメールアドレスへご連絡いたします。</div>
         <div class="auth0-form">
             <form @submit.prevent="handleSubmit">
-                <div class="form-group">
+                <div class="form-group mb-4">
                     <label for="email">メールアドレス</label>
                     <input type="email" v-model="email" name="email" class="form-control" :class="{ 'is-invalid': submitted && !email }" placeholder="メールアドレスを入力" />
                     <div v-show="submitted && !email" class="invalid-feedback">Email is required</div>
@@ -50,3 +50,13 @@ export default {
     }
 };
 </script>
+
+<style lang="scss" scoped>
+.description {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 140%;
+    text-align: left;
+    margin-bottom: 32px;
+}
+</style>

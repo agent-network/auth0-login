@@ -1,11 +1,7 @@
 <template>
     <div class="">
-        <div class="row">
-            <div class="center">
-                <div v-if="alert.message" :class="`alert ${alert.type}`">{{alert.message}}</div>
-                <router-view></router-view>
-            </div>
-        </div>
+        <div v-if="alert.message" :class="`alert ${alert.type}`">{{alert.message}}</div>
+        <router-view></router-view>
     </div>
 </template>
 
@@ -34,3 +30,15 @@ export default {
     } 
 };
 </script>
+
+<style lang="scss" scoped>
+.alert{
+
+  &-danger{
+    background: none;
+    color: #EB5757;
+    border: none;
+    padding: 0;
+  }
+}
+</style>

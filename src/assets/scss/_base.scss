@@ -1,0 +1,26 @@
+body {
+  background: #F3F4F7;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.alignC {
+  text-align: center;
+}
+
+a {
+  display: inline-block;
+  color: #00ACE5;
+  font-size: 12px;
+  line-height: 1.5;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.invalid-feedback {
+    display: block;
+}
+        
