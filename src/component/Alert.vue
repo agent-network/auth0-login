@@ -1,5 +1,5 @@
 <template>
-    <div class="">
+    <div class="alignC">
         <div v-if="alert.message" :class="`alert ${alert.type}`">{{alert.message}}</div>
         <router-view></router-view>
     </div>
