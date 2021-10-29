@@ -49,7 +49,7 @@
         <h2 class="title">パスワード再設定完了</h2>
         <div class="description alignC mb-4">パスワードの再設定が完了しました。</div>
         <div class="form-group d-flex justify-content-center pt-2">
-            <a ref="loginButton" class="btn btn-primary btn-block" href="#">
+            <a ref="loginButton" class="btn btn-primary btn-block" :href="redirectUrl">
                 ログイン
             </a>
         </div>
@@ -74,6 +74,7 @@ export default {
             newPasswordError: '',
             confirmNewPasswordError: '',
             globalError: '',
+            redirectUrl: ''
         }
     },
     computed: {
@@ -114,7 +115,7 @@ export default {
                 if (res.body && typeof res.body.request_url === 'string') {
                   return window.location.replace(res.body.request_url)
                 } else {
-                  this.$refs.loginButton.setAttribute('href', localStorage.getItem('callbackURL'))
+                  this.redirectUrl = localStorage.getItem('callbackURL')
                 }
               } else {
                 let getErrorFunc = !!res ? this.getResponseError : this.getNetworkError
@@ -127,7 +128,7 @@ export default {
             .catch(res => {
               let getErrorFunc = !!res ? this.getResponseError : this.getNetworkError
               let error = getErrorFunc(res)
-              this.$refs.loginButton.setAttribute('href', localStorage.getItem('callbackURL'))
+              // this.$refs.loginButton.setAttribute('href', localStorage.getItem('callbackURL'))
               this.globalError = error
             })
         },
