@@ -110,7 +110,6 @@ export default {
                 confirmNewPassword,
               })
             }).then(res => {
-              console.log('then',res)
               if (res.status >= 200 && res.status < 300) {
                 this.success = true
                 if (res.body && typeof res.body.request_url === 'string') {
@@ -121,13 +120,13 @@ export default {
               } else {
                 let getErrorFunc = !!res ? this.getResponseError : this.getNetworkError
                 let error = getErrorFunc(res)
+                this.$store.dispatch('alert/error', '半角英数字8文字以上16文字以下で入力してください', { root: true });
 
                 this.globalError = error
               }
 
             })
             .catch(res => {
-              console.log('catch', res)
               let getErrorFunc = !!res ? this.getResponseError : this.getNetworkError
               let error = getErrorFunc(res)
               // this.$refs.loginButton.setAttribute('href', localStorage.getItem('callbackURL'))
