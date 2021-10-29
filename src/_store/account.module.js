@@ -10,9 +10,14 @@ const actions = {
     login({ dispatch, commit }, { email, password }) {
         commit('loginRequest', { email });
         authService.login(email, password).then().catch(e => {
-            console.log(e.error_description);
-            commit('loginFailure', e.error_description);
-            dispatch('alert/error', e.error_description, { root: true });
+            if (e.statusCode===401){
+                commit('loginFailure', 'メールアドレスまたはパスワードが正しくありません。');
+                dispatch('alert/error', 'メールアドレスまたはパスワードが正しくありません。', { root: true });
+            } else {
+                console.log(e.error_description);
+                commit('loginFailure', e.error_description);
+                dispatch('alert/error', e.error_description, { root: true });
+            }
         });
     },
     logout({ commit }) {
