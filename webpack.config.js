@@ -1,7 +1,6 @@
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
-var MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
     mode: 'development',
@@ -26,7 +25,7 @@ module.exports = {
             {
                 test: /\.(scss|css)/,
                 use: [
-                  MiniCssExtractPlugin.loader,
+                  "style-loader",
                   "css-loader",
                   {
                     loader: "sass-loader",
@@ -42,7 +41,6 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/index.html',
         }),
-        new MiniCssExtractPlugin(),
     ],
     devServer: {
         historyApiFallback: true
