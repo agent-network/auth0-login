@@ -1,6 +1,6 @@
 <template>
     <div class="w-100">
-      <div  v-if="!submitted" class="w-100">
+      <div  v-if="!submitted||!success" class="w-100">
         <h2 class="title">パスワードを設定してください</h2>
         <div class="auth0-form">
             <alert-box></alert-box>
@@ -68,6 +68,7 @@ export default {
             newPassword: '',
             confirmNewPassword: '',
             submitted: false,
+            success: false,
             showNewPassword: false,
             showConfirmNewPassword: false,
             newPasswordError: '',
@@ -109,6 +110,7 @@ export default {
               })
             }).then(resp => resp.json()).then(res => {
               if (res.status >= 200 && res.status < 300) {
+                this.success = true
                 if (res.body && typeof res.body.request_url === 'string') {
                   return window.location.replace(res.body.request_url)
                 } else {
