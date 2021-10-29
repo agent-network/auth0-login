@@ -109,7 +109,7 @@ export default {
                 newPassword,
                 confirmNewPassword,
               })
-            }).then(resp => resp.json()).then(res => {
+            }).then(res => {
               console.log('then',res)
               if (res.status >= 200 && res.status < 300) {
                 this.success = true
@@ -127,7 +127,7 @@ export default {
 
             })
             .catch(res => {
-              console.log('catch', res.response)
+              console.log('catch', res)
               let getErrorFunc = !!res ? this.getResponseError : this.getNetworkError
               let error = getErrorFunc(res)
               // this.$refs.loginButton.setAttribute('href', localStorage.getItem('callbackURL'))
