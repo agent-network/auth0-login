@@ -120,7 +120,7 @@ export default {
               } else {
                 let getErrorFunc = !!res ? this.getResponseError : this.getNetworkError
                 let error = getErrorFunc(res)
-                this.$store.dispatch('alert/error', '半角英数字8文字以上16文字以下で入力してください', { root: true });
+                this.$store.dispatch('alert/error', '記号を含む半角英数字8文字以上で入力してください', { root: true });
 
                 this.globalError = error
               }
