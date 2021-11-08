@@ -1,7 +1,7 @@
 <template>
     <div class="w-100">
         <h2 class="title">パスワードをリセット</h2>
-        <div class="description">登録したメールアドレスを入力してください。入力したメールアドレスへご連絡いたします。</div>
+        <div class="description">登録したメールアドレスを入力してください。入力したメールアドレスへリセット用のリンクを送信します。</div>
         <div class="auth0-form">
             <form @submit.prevent="handleSubmit">
                 <div class="form-group mb-4">
@@ -58,5 +58,10 @@ export default {
     line-height: 140%;
     text-align: left;
     margin-bottom: 32px;
+
+    @media screen and (max-width: 480px) {
+        text-align: center;
+        letter-spacing: -.02em;
+    }
 }
 </style>

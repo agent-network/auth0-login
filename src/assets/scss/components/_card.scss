@@ -23,5 +23,9 @@
     opacity: .8;
   }
 
+  @media screen and (max-width: 480px) {
+    padding: 0;
+  }
+
   
 }

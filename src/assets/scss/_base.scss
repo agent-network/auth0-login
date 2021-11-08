@@ -23,4 +23,34 @@ a {
 .invalid-feedback {
     display: block;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  padding: 72px 40px;
+  
+  .logo {
+    margin-bottom: 74px;
+  } 
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    background: #fff;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    padding: 40px 16px;
+    
+    .logo {
+      margin-bottom: 32px;
+    } 
+  }
+}
         

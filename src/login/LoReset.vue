@@ -164,3 +164,13 @@ export default {
     components: {'alert-box': alertBox}
 };
 </script>
+
+<style lang="scss" scoped>
+@media screen and (max-width: 480px) {
+  .card{
+    .title{
+      font-size: 16px;
+    }
+  }
+}
+</style>

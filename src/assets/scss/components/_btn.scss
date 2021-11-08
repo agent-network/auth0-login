@@ -29,4 +29,8 @@
       color: #00ACE5;
     }
   }
+
+  @media screen and (max-width: 480px) {
+    max-width: unset;
+  }
 }

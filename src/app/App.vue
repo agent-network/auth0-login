@@ -31,15 +31,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: auto;
-  padding: 72px 40px;
-  
-  .logo {
-    margin-bottom: 74px;
-  } 
-}
 </style>
