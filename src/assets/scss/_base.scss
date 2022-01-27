@@ -1,5 +1,5 @@
 body {
-  background: #F3F4F7;
+  background: #f3f4f7;
   font-size: 14px;
   line-height: 1.5;
 }
@@ -10,7 +10,7 @@ body {
 
 a {
   display: inline-block;
-  color: #00ACE5;
+  color: #00ace5;
   font-size: 12px;
   line-height: 1.5;
   text-decoration: none;
@@ -21,7 +21,7 @@ a {
 }
 
 .invalid-feedback {
-    display: block;
+  display: block;
 }
 
 .container {
@@ -30,10 +30,10 @@ a {
   align-items: center;
   margin: auto;
   padding: 72px 40px;
-  
+
   .logo {
     margin-bottom: 74px;
-  } 
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -47,10 +47,9 @@ a {
     align-items: center;
     margin: auto;
     padding: 40px 16px;
-    
+
     .logo {
       margin-bottom: 32px;
-    } 
+    }
   }
 }
-        
