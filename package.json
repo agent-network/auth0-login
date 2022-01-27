@@ -8,11 +8,13 @@
   "scripts": {
     "start": "webpack-dev-server --open",
     "build-dev": "webpack --mode development",
-    "build": "webpack"
+    "build": "webpack",
+    "format": "prettier . -w"
   },
   "dependencies": {
     "auth0-js": "^9.8.1",
     "node-sass": "5.0.0",
+    "prettier": "^2.5.1",
     "sass-loader": "10.1.1",
     "style-loader": "2.0.0",
     "vee-validate": "^2.1.0-beta.6",
