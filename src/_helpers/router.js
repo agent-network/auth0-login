@@ -42,6 +42,7 @@ router.beforeEach((to, from, next) => {
   }
 
   if (authRequired && !loggedIn) {
+    // HINT ここのパスを切り替えることで開発環境でページを出し分けできます
     return next('/login');
   }
 
