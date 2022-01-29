@@ -1,76 +1,125 @@
 <template>
-    <div class="w-100">
-        <h2 class="title">ログイン</h2>
-        <div class="auth0-form">
-            <alert-box></alert-box>
-            <form @submit.prevent="handleSubmit">
-                <div class="form-group mb-3">
-                    <label for="email">メールアドレス</label>
-                    <input type="email" v-model="email" name="email" class="form-control" :class="{ 'is-invalid': submitted && !email }" placeholder="メールアドレスを入力" />
-                </div>
-                <div class="form-group pt-1 mb-4">
-                    <label htmlFor="password">パスワード</label>
-                    <div class="form-input-password">
-                        <input :type="showPassword ? 'text' : 'password'" v-model="password" name="password" class="form-control" :class="{ 'is-invalid': submitted && !password }" placeholder="記号を含む半角英数8文字以上で入力" />
-                        <div class="toggle-btn" :class="{show: showPassword}" @click="showPassword = !showPassword">
-                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-hide">
-                            <path d="M7.70475 4.06155C7.9677 4.02125 8.23335 4.0012 8.49936 4.00158C10.8832 4.00158 13.1246 5.71824 14.4289 8.49936C14.2294 8.9226 14.0041 9.33317 13.7543 9.72875C13.6749 9.85155 13.6332 9.99486 13.6343 10.141C13.636 10.3046 13.6911 10.4632 13.7913 10.5925C13.8915 10.7219 14.0313 10.8149 14.1893 10.8573C14.3473 10.8998 14.5149 10.8894 14.6664 10.8278C14.8179 10.7661 14.9452 10.6566 15.0286 10.5159C15.3779 9.96708 15.6813 9.39041 15.9357 8.79172C15.9759 8.69818 15.9966 8.59743 15.9966 8.49561C15.9966 8.3938 15.9759 8.29305 15.9357 8.19951C14.4214 4.68375 11.5728 2.50233 8.49936 2.50233C8.14753 2.50055 7.79627 2.53066 7.44988 2.59228C7.35144 2.60902 7.25725 2.64498 7.17271 2.69811C7.08816 2.75125 7.01491 2.82051 6.95714 2.90195C6.89936 2.9834 6.85819 3.07542 6.83598 3.17278C6.81377 3.27013 6.81095 3.3709 6.82769 3.46935C6.84442 3.56779 6.88038 3.66197 6.93352 3.74652C6.98665 3.83106 7.05592 3.90431 7.13736 3.96209C7.2188 4.01987 7.31083 4.06103 7.40818 4.08325C7.50554 4.10546 7.60631 4.10828 7.70475 4.09154V4.06155ZM2.28493 1.22046C2.21504 1.15057 2.13206 1.09512 2.04074 1.0573C1.94942 1.01947 1.85154 1 1.7527 1C1.65385 1 1.55597 1.01947 1.46465 1.0573C1.37333 1.09512 1.29035 1.15057 1.22046 1.22046C1.0793 1.36162 1 1.55307 1 1.7527C1 1.95232 1.0793 2.14378 1.22046 2.28493L3.54431 4.60129C2.48401 5.62193 1.64014 6.84567 1.06304 8.19951C1.02176 8.29409 1.00045 8.39617 1.00045 8.49936C1.00045 8.60255 1.02176 8.70463 1.06304 8.79921C2.57729 12.315 5.42588 14.4964 8.49936 14.4964C9.84652 14.4871 11.1619 14.086 12.285 13.342L14.7138 15.7783C14.7835 15.8485 14.8664 15.9043 14.9577 15.9423C15.0491 15.9804 15.1471 16 15.246 16C15.345 16 15.443 15.9804 15.5343 15.9423C15.6257 15.9043 15.7086 15.8485 15.7783 15.7783C15.8485 15.7086 15.9043 15.6257 15.9423 15.5343C15.9804 15.443 16 15.345 16 15.246C16 15.1471 15.9804 15.0491 15.9423 14.9577C15.9043 14.8664 15.8485 14.7835 15.7783 14.7138L2.28493 1.22046ZM7.05258 8.10955L8.88917 9.94615C8.76247 9.98248 8.63116 10.0002 8.49936 9.99862C8.10173 9.99862 7.72039 9.84066 7.43922 9.5595C7.15806 9.27833 7.0001 8.89699 7.0001 8.49936C6.99857 8.36757 7.01624 8.23625 7.05258 8.10955ZM8.49936 12.9971C6.11554 12.9971 3.87415 11.2805 2.57729 8.49936C3.06162 7.4302 3.74901 6.4653 4.60129 5.65827L5.92813 7.0001C5.61647 7.56892 5.49765 8.22345 5.58949 8.86552C5.68134 9.50759 5.97889 10.1026 6.43752 10.5612C6.89616 11.0198 7.49113 11.3174 8.1332 11.4092C8.77527 11.5011 9.4298 11.3822 9.99862 11.0706L11.1905 12.2475C10.3743 12.7279 9.44646 12.9864 8.49936 12.9971Z" fill="#9E9E9E"/>
-                            </svg>
-                            <svg width="17" height="12" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-show">
-                                <path d="M14.9374 5.7C13.4229 2.1825 10.5739 0 7.5 0C4.42607 0 1.57706 2.1825 0.0625918 5.7C0.0213087 5.79462 0 5.89676 0 6C0 6.10324 0.0213087 6.20538 0.0625918 6.3C1.57706 9.8175 4.42607 12 7.5 12C10.5739 12 13.4229 9.8175 14.9374 6.3C14.9787 6.20538 15 6.10324 15 6C15 5.89676 14.9787 5.79462 14.9374 5.7ZM7.5 10.5C5.12333 10.5 2.87411 8.7825 1.57706 6C2.87411 3.2175 5.12333 1.5 7.5 1.5C9.87667 1.5 12.1259 3.2175 13.4229 6C12.1259 8.7825 9.87667 10.5 7.5 10.5ZM7.5 3C6.90686 3 6.32705 3.17595 5.83387 3.50559C5.34069 3.83524 4.95631 4.30377 4.72933 4.85195C4.50234 5.40013 4.44295 6.00333 4.55867 6.58527C4.67438 7.16721 4.96001 7.70176 5.37942 8.12132C5.79883 8.54088 6.33319 8.8266 6.91493 8.94236C7.49667 9.05811 8.09966 8.9987 8.64765 8.77164C9.19564 8.54458 9.66401 8.16006 9.99354 7.66671C10.3231 7.17336 10.499 6.59334 10.499 6C10.499 5.20435 10.183 4.44129 9.62058 3.87868C9.05817 3.31607 8.29537 3 7.5 3ZM7.5 7.5C7.20343 7.5 6.91352 7.41203 6.66694 7.2472C6.42035 7.08238 6.22816 6.84811 6.11466 6.57403C6.00117 6.29994 5.97148 5.99834 6.02933 5.70736C6.08719 5.41639 6.23 5.14912 6.43971 4.93934C6.64942 4.72956 6.9166 4.5867 7.20747 4.52882C7.49834 4.47094 7.79983 4.50065 8.07382 4.61418C8.34782 4.72771 8.58201 4.91997 8.74677 5.16665C8.91153 5.41332 8.99948 5.70333 8.99948 6C8.99948 6.39782 8.8415 6.77936 8.56029 7.06066C8.27908 7.34196 7.89769 7.5 7.5 7.5Z" fill="#9E9E9E"/>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group d-flex justify-content-center mb-3">
-                    <button class="btn btn-primary btn-block" :disabled="status.loggingIn">
-                        ログイン
-                        <img v-show="status.loggingIn" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-                    </button>
-                </div>
-            </form>
+  <div class="w-100">
+    <h2 class="title">ログイン</h2>
+    <div class="auth0-form">
+      <alert-box></alert-box>
+      <form @submit.prevent="handleSubmit">
+        <div class="form-group mb-3">
+          <label for="email">メールアドレス</label>
+          <input
+            type="email"
+            v-model="email"
+            name="email"
+            class="form-control"
+            :class="{ 'is-invalid': submitted && !email }"
+            placeholder="メールアドレスを入力"
+          />
         </div>
-        <div class="white-text-center d-flex justify-content-center">
-            <router-link to="/login/resetpassword" class="white-text-center btn-link">パスワードを忘れた場合はこちら</router-link>
+        <div class="form-group pt-1 mb-4">
+          <label htmlFor="password">パスワード</label>
+          <div class="form-input-password">
+            <input
+              :type="showPassword ? 'text' : 'password'"
+              v-model="password"
+              name="password"
+              class="form-control"
+              :class="{ 'is-invalid': submitted && !password }"
+              placeholder="記号を含む半角英数8文字以上で入力"
+            />
+            <div
+              class="toggle-btn"
+              :class="{ show: showPassword }"
+              @click="showPassword = !showPassword"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon-hide"
+              >
+                <path
+                  d="M7.70475 4.06155C7.9677 4.02125 8.23335 4.0012 8.49936 4.00158C10.8832 4.00158 13.1246 5.71824 14.4289 8.49936C14.2294 8.9226 14.0041 9.33317 13.7543 9.72875C13.6749 9.85155 13.6332 9.99486 13.6343 10.141C13.636 10.3046 13.6911 10.4632 13.7913 10.5925C13.8915 10.7219 14.0313 10.8149 14.1893 10.8573C14.3473 10.8998 14.5149 10.8894 14.6664 10.8278C14.8179 10.7661 14.9452 10.6566 15.0286 10.5159C15.3779 9.96708 15.6813 9.39041 15.9357 8.79172C15.9759 8.69818 15.9966 8.59743 15.9966 8.49561C15.9966 8.3938 15.9759 8.29305 15.9357 8.19951C14.4214 4.68375 11.5728 2.50233 8.49936 2.50233C8.14753 2.50055 7.79627 2.53066 7.44988 2.59228C7.35144 2.60902 7.25725 2.64498 7.17271 2.69811C7.08816 2.75125 7.01491 2.82051 6.95714 2.90195C6.89936 2.9834 6.85819 3.07542 6.83598 3.17278C6.81377 3.27013 6.81095 3.3709 6.82769 3.46935C6.84442 3.56779 6.88038 3.66197 6.93352 3.74652C6.98665 3.83106 7.05592 3.90431 7.13736 3.96209C7.2188 4.01987 7.31083 4.06103 7.40818 4.08325C7.50554 4.10546 7.60631 4.10828 7.70475 4.09154V4.06155ZM2.28493 1.22046C2.21504 1.15057 2.13206 1.09512 2.04074 1.0573C1.94942 1.01947 1.85154 1 1.7527 1C1.65385 1 1.55597 1.01947 1.46465 1.0573C1.37333 1.09512 1.29035 1.15057 1.22046 1.22046C1.0793 1.36162 1 1.55307 1 1.7527C1 1.95232 1.0793 2.14378 1.22046 2.28493L3.54431 4.60129C2.48401 5.62193 1.64014 6.84567 1.06304 8.19951C1.02176 8.29409 1.00045 8.39617 1.00045 8.49936C1.00045 8.60255 1.02176 8.70463 1.06304 8.79921C2.57729 12.315 5.42588 14.4964 8.49936 14.4964C9.84652 14.4871 11.1619 14.086 12.285 13.342L14.7138 15.7783C14.7835 15.8485 14.8664 15.9043 14.9577 15.9423C15.0491 15.9804 15.1471 16 15.246 16C15.345 16 15.443 15.9804 15.5343 15.9423C15.6257 15.9043 15.7086 15.8485 15.7783 15.7783C15.8485 15.7086 15.9043 15.6257 15.9423 15.5343C15.9804 15.443 16 15.345 16 15.246C16 15.1471 15.9804 15.0491 15.9423 14.9577C15.9043 14.8664 15.8485 14.7835 15.7783 14.7138L2.28493 1.22046ZM7.05258 8.10955L8.88917 9.94615C8.76247 9.98248 8.63116 10.0002 8.49936 9.99862C8.10173 9.99862 7.72039 9.84066 7.43922 9.5595C7.15806 9.27833 7.0001 8.89699 7.0001 8.49936C6.99857 8.36757 7.01624 8.23625 7.05258 8.10955ZM8.49936 12.9971C6.11554 12.9971 3.87415 11.2805 2.57729 8.49936C3.06162 7.4302 3.74901 6.4653 4.60129 5.65827L5.92813 7.0001C5.61647 7.56892 5.49765 8.22345 5.58949 8.86552C5.68134 9.50759 5.97889 10.1026 6.43752 10.5612C6.89616 11.0198 7.49113 11.3174 8.1332 11.4092C8.77527 11.5011 9.4298 11.3822 9.99862 11.0706L11.1905 12.2475C10.3743 12.7279 9.44646 12.9864 8.49936 12.9971Z"
+                  fill="#9E9E9E"
+                />
+              </svg>
+              <svg
+                width="17"
+                height="12"
+                viewBox="0 0 17 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon-show"
+              >
+                <path
+                  d="M14.9374 5.7C13.4229 2.1825 10.5739 0 7.5 0C4.42607 0 1.57706 2.1825 0.0625918 5.7C0.0213087 5.79462 0 5.89676 0 6C0 6.10324 0.0213087 6.20538 0.0625918 6.3C1.57706 9.8175 4.42607 12 7.5 12C10.5739 12 13.4229 9.8175 14.9374 6.3C14.9787 6.20538 15 6.10324 15 6C15 5.89676 14.9787 5.79462 14.9374 5.7ZM7.5 10.5C5.12333 10.5 2.87411 8.7825 1.57706 6C2.87411 3.2175 5.12333 1.5 7.5 1.5C9.87667 1.5 12.1259 3.2175 13.4229 6C12.1259 8.7825 9.87667 10.5 7.5 10.5ZM7.5 3C6.90686 3 6.32705 3.17595 5.83387 3.50559C5.34069 3.83524 4.95631 4.30377 4.72933 4.85195C4.50234 5.40013 4.44295 6.00333 4.55867 6.58527C4.67438 7.16721 4.96001 7.70176 5.37942 8.12132C5.79883 8.54088 6.33319 8.8266 6.91493 8.94236C7.49667 9.05811 8.09966 8.9987 8.64765 8.77164C9.19564 8.54458 9.66401 8.16006 9.99354 7.66671C10.3231 7.17336 10.499 6.59334 10.499 6C10.499 5.20435 10.183 4.44129 9.62058 3.87868C9.05817 3.31607 8.29537 3 7.5 3ZM7.5 7.5C7.20343 7.5 6.91352 7.41203 6.66694 7.2472C6.42035 7.08238 6.22816 6.84811 6.11466 6.57403C6.00117 6.29994 5.97148 5.99834 6.02933 5.70736C6.08719 5.41639 6.23 5.14912 6.43971 4.93934C6.64942 4.72956 6.9166 4.5867 7.20747 4.52882C7.49834 4.47094 7.79983 4.50065 8.07382 4.61418C8.34782 4.72771 8.58201 4.91997 8.74677 5.16665C8.91153 5.41332 8.99948 5.70333 8.99948 6C8.99948 6.39782 8.8415 6.77936 8.56029 7.06066C8.27908 7.34196 7.89769 7.5 7.5 7.5Z"
+                  fill="#9E9E9E"
+                />
+              </svg>
+            </div>
+          </div>
         </div>
+        <div class="form-group d-flex justify-content-center mb-3">
+          <button
+            class="btn btn-primary btn-block"
+            :disabled="status.loggingIn"
+          >
+            ログイン
+            <img
+              v-show="status.loggingIn"
+              src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+            />
+          </button>
+        </div>
+      </form>
     </div>
+    <div class="white-text-center d-flex justify-content-center">
+      <router-link to="/login/resetpassword" class="white-text-center btn-link">
+        パスワードを忘れた場合はこちら
+      </router-link>
+    </div>
+  </div>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapState, mapActions } from 'vuex';
 import alertBox from '../component/Alert';
 
 export default {
-    data () {
-        return {
-            email: '',
-            password: '',
-            submitted: false,
-            showPassword: false,
-        }
+  data() {
+    return {
+      email: '',
+      password: '',
+      submitted: false,
+      showPassword: false,
+    };
+  },
+  computed: {
+    ...mapState('account', ['status']),
+  },
+  created() {
+    // reset login status
+    this.logout();
+  },
+  methods: {
+    ...mapActions('account', ['login', 'logout']),
+    handleSubmit(e) {
+      this.submitted = true;
+      const { email, password } = this;
+      if (email && password) {
+        this.login({ email, password });
+      } else {
+        this.$store.dispatch(
+          'alert/error',
+          'メールアドレスとパスワードを入力してください',
+          { root: true }
+        );
+      }
     },
-    computed: {
-        ...mapState('account', ['status'])
-    },
-    created () {
-        // reset login status
-        this.logout();
-    },
-    methods: {
-        ...mapActions('account', ['login', 'logout']),
-        handleSubmit (e) {
-            this.submitted = true;
-            const { email, password } = this;
-            if (email && password) {
-                this.login({ email, password })
-            } else {
-                this.$store.dispatch('alert/error', 'メールアドレスとパスワードを入力してください', { root: true });
-            }
-        }
-    },
-    components: {'alert-box': alertBox}
+  },
+  components: { 'alert-box': alertBox },
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

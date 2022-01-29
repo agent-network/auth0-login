@@ -6,7 +6,7 @@
 
 To run it locally:
 
-* Populate the auth0Config object in index.html
+- Populate the auth0Config object in index.html
 
 ```bash
     window.auth0Config = {
@@ -34,4 +34,3 @@ $ npm start
 1. Run `yarn build` , a dist folder will be created with `index.html, main.js` files
 2. create a new release on github repository
 3. change the version here js file version here https://manage.auth0.com/dashboard/jp/shin-caritore-dev/login_page
-
