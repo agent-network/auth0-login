@@ -9,7 +9,7 @@
             <div class="form-group mb-4">
               <ValidationProvider
                 vid="password"
-                rules="required|min:8|password-number|password-alpha|password-spchar"
+                rules="required|min:8|password-number|password-spchar|password-invalid"
                 v-slot="{ errors }"
               >
                 <label htmlFor="password">パスワード</label>

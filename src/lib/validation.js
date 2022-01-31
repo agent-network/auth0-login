@@ -24,12 +24,12 @@ extend('password-number', {
   validate: (value) => /[0-9]/.test(value),
 });
 
-extend('password-alpha', {
-  message: 'アルファベットを含めてください',
-  validate: (value) => /[a-zA-Z]/.test(value),
-});
-
 extend('password-spchar', {
   message: '!@#$%^&*の内いずれかの記号を含めてください',
   validate: (value) => /[!@#$%^&*]/.test(value),
+});
+
+extend('password-invalid', {
+  message: 'パスワードが有効ではありません',
+  validate: (value) => /^([a-zA-Z0-9!@#$%^&*]{8,})*$/.test(value),
 });
