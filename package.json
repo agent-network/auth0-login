@@ -7,8 +7,8 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --open",
-    "build-dev": "webpack --mode development",
-    "build": "webpack",
+    "build-dev": "webpack",
+    "build": "webpack --mode production",
     "format": "prettier . -w"
   },
   "dependencies": {
@@ -17,7 +17,7 @@
     "prettier": "^2.5.1",
     "sass-loader": "10.1.1",
     "style-loader": "2.0.0",
-    "vee-validate": "^2.1.0-beta.6",
+    "vee-validate": "^3.4.14",
     "vue": "^2.5.16",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"

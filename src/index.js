@@ -1,14 +1,13 @@
 import Vue from 'vue';
-import VeeValidate from 'vee-validate';
-
 import { store } from './_store';
 import { router } from './_helpers';
 import alertBox from './component/Alert';
 import App from './app/App';
+import './lib/validation';
 import './assets/scss/style.scss';
-Vue.use(VeeValidate);
 
 Vue.component('alert-box', alertBox, { name: 'alert-box' });
+
 new Vue({
   el: '#app',
   router,
