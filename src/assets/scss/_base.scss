@@ -32,7 +32,7 @@ a {
   padding: 72px 40px;
 
   .logo {
-    margin-bottom: 74px;
+    margin-bottom: 62px;
   }
 }
 
@@ -50,6 +50,10 @@ a {
 
     .logo {
       margin-bottom: 32px;
+      max-width: 70vw;
+      svg{
+        width: 100%;
+      }
     }
   }
 }
