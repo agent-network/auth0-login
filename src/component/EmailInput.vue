@@ -5,7 +5,7 @@
     :class="{ 'is-invalid': isInvalid }"
     placeholder="メールアドレスを入力"
     :value="value"
-    @input="onChange"
+    @change="onChange"
   />
 </template>
 

@@ -6,7 +6,7 @@
       :class="{ 'is-invalid': isInvalid }"
       :type="showPassword ? 'text' : 'password'"
       :value="value"
-      @input="$emit('input', $event.target.value)"
+      @change="$emit('input', $event.target.value)"
     />
     <div class="toggle-btn" @click="showPassword = !showPassword">
       <svg
