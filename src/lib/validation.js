@@ -1,5 +1,5 @@
 import { extend } from 'vee-validate';
-import { required, min, confirmed } from 'vee-validate/dist/rules';
+import { required, min, confirmed, email } from 'vee-validate/dist/rules';
 
 // https://vee-validate.logaretm.com/v3/guide/rules.html
 
@@ -17,6 +17,11 @@ extend('min', {
   ...min,
   params: ['length'],
   message: '{length}文字以上で入力してください',
+});
+
+extend('email', {
+  ...email,
+  message: 'メールアドレスが有効ではありません',
 });
 
 extend('password-number', {
