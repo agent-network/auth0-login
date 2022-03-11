@@ -35,11 +35,11 @@ extend('password-alpha', {
 });
 
 extend('password-spchar', {
-  message: '!@#$%^&*の内いずれかの記号を含めてください',
-  validate: (value) => /[!@#$%^&*]/.test(value),
+  message: '記号を含めてください',
+  validate: (value) => /[!-/:-@[-`{-~]/.test(value),
 });
 
 extend('password-invalid', {
   message: 'パスワードが有効ではありません',
-  validate: (value) => /^([a-zA-Z0-9!@#$%^&*]{8,})*$/.test(value),
+  validate: (value) => /^([a-zA-Z0-9!-/:-@[-`{-~]{8,})*$/.test(value),
 });
