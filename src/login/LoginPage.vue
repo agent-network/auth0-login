@@ -21,6 +21,7 @@
           </div>
           <div class="form-group d-flex justify-content-center mb-3">
             <SubmitButton
+              label="ログイン"
               :isSubmiting="status.changing"
               :isDisabled="invalid"
             />
