@@ -1,55 +1,49 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Auth0 Hosted Login</title>
-    <meta
-      data-n-head="1"
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=no"
-    />
-    <link
-      href="//netdna.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7501756319807400"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script>
-      try {
-        window.auth0Config = JSON.parse(
-          decodeURIComponent(escape(window.atob('@@config@@')))
-        );
-      } catch (e) {
-        window.auth0Config = {
-          auth0Domain: 'shin-caritore-dev.jp.auth0.com',
-          clientID: 'u75CRQBAQ6Mz6w5Hcnswwb0ABJ0D9GfT',
-          connection: 'org-db-ecfd5bd2784b40918f9f8e2111d1061d',
-          callbackURL: location.href,
-          audience: 'https://caritore-api',
-          scope: 'openid',
-          authorizationServer: {
-            url: '',
-            issuer: '',
-          },
-          extraParams: {
-            response_type: 'code',
-          },
-        };
-      }
 
-      window.LoResetConfig = {
-        container: 'change-password-widget-container', // required
-        email: '{{email | escape}}', // DO NOT CHANGE THIS
-        csrf_token: '{{csrf_token}}', // DO NOT CHANGE THIS
-        ticket: '{{ticket}}', // DO NOT CHANGE THIS
-        password_policy: '{{password_policy}}', // DO NOT CHANGE THIS
+<head>
+  <meta charset="UTF-8" />
+  <title>Teampot</title>
+  <link rel="icon" type="image/x-icon" href="https://favicon.teampot.work/favicon.ico">
+  <meta data-n-head="1" name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link href="//netdna.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7501756319807400"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script>
+    try {
+      window.auth0Config = JSON.parse(
+        decodeURIComponent(escape(window.atob('@@config@@')))
+      );
+    } catch (e) {
+      window.auth0Config = {
+        auth0Domain: 'shin-caritore-dev.jp.auth0.com',
+        clientID: 'u75CRQBAQ6Mz6w5Hcnswwb0ABJ0D9GfT',
+        connection: 'org-db-ecfd5bd2784b40918f9f8e2111d1061d',
+        callbackURL: location.href,
+        audience: 'https://caritore-api',
+        scope: 'openid',
+        authorizationServer: {
+          url: '',
+          issuer: '',
+        },
+        extraParams: {
+          response_type: 'code',
+        },
       };
-    </script>
-  <script type="text/javascript" src="main.js"></script></body>
+    }
+
+    window.LoResetConfig = {
+      container: 'change-password-widget-container', // required
+      email: '{{email | escape}}', // DO NOT CHANGE THIS
+      csrf_token: '{{csrf_token}}', // DO NOT CHANGE THIS
+      ticket: '{{ticket}}', // DO NOT CHANGE THIS
+      password_policy: '{{password_policy}}', // DO NOT CHANGE THIS
+    };
+  </script>
+<script type="text/javascript" src="main.js"></script></body>
+
 </html>
