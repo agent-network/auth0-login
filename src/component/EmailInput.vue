@@ -1,5 +1,6 @@
 <template>
   <input
+    id="email"
     type="email"
     class="form-control"
     :class="{ 'is-invalid': isInvalid }"

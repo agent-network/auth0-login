@@ -1,6 +1,7 @@
 <template>
   <div class="password-input">
     <input
+      id="password"
       class="form-control"
       placeholder="記号を含む半角英数8文字以上で入力"
       :class="{ 'is-invalid': isInvalid }"
